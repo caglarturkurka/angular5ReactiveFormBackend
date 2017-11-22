@@ -32,4 +32,16 @@ public class UserResource {
         user = userService.save(user);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+
+    @PutMapping("user")
+    public ResponseEntity<User> update(@RequestBody User user ){
+        user = userService.save(user);
+        return new ResponseEntity<User>(user, HttpStatus.OK);
+    }
+
+    @DeleteMapping("user/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id){
+        userService.deleteById(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 }
